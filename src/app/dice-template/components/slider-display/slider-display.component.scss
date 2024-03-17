@@ -1,58 +1,63 @@
 .slider-display {
-  display: flex;
-  gap: 15px;
-  align-items: center;
+    display: flex;
+    gap: 15px;
+    align-items: center;
 
-  .slider-value {
-    width: 50px;
-    height: 50px;
-    display: grid;
-    place-items: center;
-    font-size: 20px;
-    color: var(--white);
-    background-color: var(--blue);
-    border-radius: 5px;
-  }
+    .slider-value {
+        width: 50px;
+        height: 50px;
+        display: grid;
+        place-items: center;
+        font-size: 20px;
+        color: var(--white);
+        background-color: var(--blue);
+        border-radius: 5px;
+    }
 
-  #range1 {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 200px;
-    cursor: pointer;
-    outline: none;
-    overflow: hidden;
-    border-radius: 16px;
-  }
+    #range {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 200px;
+        cursor: pointer;
+        outline: none;
+        overflow: hidden;
+        border-radius: 16px;
+    }
 
-  #range1::-webkit-slider-runnable-track {
-    height: 12px;
-    background: var(--grey);
-    border-radius: 16px;
-  }
+    #range::-webkit-slider-runnable-track {
+        height: 12px;
+        background: var(--grey);
+        border-radius: 16px;
+    }
 
-  #range1::-moz-range-track {
-    height: 12px;
-    background: var(--grey);
-    border-radius: 16px;
-  }
+    #range::-moz-range-track {
+        height: 12px;
+        background: var(--grey);
+        border-radius: 16px;
+    }
 
-  #range1::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    height: 12px;
-    width: 12px;
-    background-color: var(--white);
-    border-radius: 50%;
-    border: 1px solid var(--purple);
-    box-shadow: -407px 0 0 400px var(--purple);
-  }
+    #range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 12px;
+        width: 12px;
+        background-color: var(--white);
+        border-radius: 50%;
+        border: 1px solid var(--purple);
+        box-shadow: -407px 0 0 400px var(--purple);
+    }
 
-  #range1::-moz-range-thumb {
-    height: 12px;
-    width: 12px;
-    background-color: var(--white);
-    border-radius: 50%;
-    border: 1px solid var(--purple);
-    box-shadow: -407px 0 0 400px var(--purple);
-  }
+    #range::-moz-range-thumb {
+        height: 12px;
+        width: 12px;
+        background-color: var(--white);
+        border-radius: 50%;
+        border: 1px solid var(--purple);
+    }
+
+    #range::-moz-range-progress {
+        background-color: var(--purple);
+        border-radius: 16px;
+        height: 12px;
+    }
 }
