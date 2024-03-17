@@ -1,0 +1,29 @@
+<div class="dice-roller">
+  <div class="dice">
+    <div class="die-wrapper" *ngFor="let die of dice; trackBy: trackByFn">
+      <app-die
+        class="die"
+        [sides]="die.sides"
+        [value]="die.value"
+        [isRolling$]="isRolling$"
+      />
+      <app-dice-sides-selector
+        [id]="die.id"
+        [sides]="die.sides"
+        (sidesChange)="dieSideChange($event)"
+      />
+    </div>
+  </div>
+  <div class="dice-actions">
+    <app-slider-display (countChange)="diceCountChange($event)" />
+    <button class="btn roll-btn" (click)="rollDice()">ROLL</button>
+    <button
+      [disabled]="saveDisabled | async"
+      class="btn save-btn"
+      [class.disabled]="saveDisabled | async"
+      (click)="save()"
+    >
+      SAVE
+    </button>
+  </div>
+</div>

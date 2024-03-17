@@ -1,0 +1,76 @@
+.die {
+  position: relative;
+  width: 100px;
+  background-color: var(--blue);
+  aspect-ratio: 1;
+}
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--white);
+  font-size: 24px;
+}
+
+.triangle {
+  clip-path: polygon(100% 50%, 25% 93.3%, 25% 6.7%);
+}
+
+.square {
+  clip-path: polygon(100% 50%, 50% 100%, 0% 50%, 50% 0%);
+}
+
+.hexagon {
+  clip-path: polygon(
+    100% 50%,
+    75% 93.3%,
+    25% 93.3%,
+    0% 50%,
+    25% 6.7%,
+    75% 6.7%
+  );
+}
+
+.octagon {
+  clip-path: polygon(
+    100% 50%,
+    85.36% 85.36%,
+    50% 100%,
+    14.64% 85.36%,
+    0% 50%,
+    14.64% 14.64%,
+    50% 0%,
+    85.36% 14.64%
+  );
+}
+
+.decagon {
+  clip-path: polygon(
+    100% 50%,
+    90.45% 79.39%,
+    65.45% 97.55%,
+    34.55% 97.55%,
+    9.55% 79.39%,
+    0% 50%,
+    9.55% 20.61%,
+    34.55% 2.45%,
+    65.45% 2.45%,
+    90.45% 20.61%
+  );
+}
+
+.rolling {
+  animation: spin .5s infinite linear alternate;
+}
+
+@keyframes spin {
+  0%, 50% {
+    transform: rotate(0deg) rotateY(0deg) rotateZ(0deg) rotateX(0deg); 
+  }
+  100% {
+    transform: rotate(360deg) rotateX(360deg) rotateY(360deg) rotateZ(360deg);    
+  }
+}
+

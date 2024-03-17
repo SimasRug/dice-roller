@@ -1,0 +1,14 @@
+<div class="slider-display">
+  <div class="slider-value">{{ count.value }}</div>
+  <div>
+    <input
+    class="range"
+    type="range"
+    min="1"
+    max="6"
+    id="range1"
+    [formControl]="count"
+    (input)="countValueChange()"
+    />
+  </div>
+</div>

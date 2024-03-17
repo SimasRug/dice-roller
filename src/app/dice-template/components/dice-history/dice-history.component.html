@@ -1,0 +1,41 @@
+<div class="history">
+  <div class="switch">
+    <span
+      (click)="showList(ListType.HISTORY)"
+      class="switch-item"
+      [class.active]="listType === ListType.HISTORY"
+    >
+      History
+    </span>
+    <span
+      (click)="showList(ListType.SAVED)"
+      class="switch-item"
+      [class.active]="listType === ListType.SAVED"
+    >
+      Saved
+    </span>
+  </div>
+  <div class="list-wrapper">
+    <!-- TODO: list component -->
+    <div *ngIf="listType === ListType.HISTORY" class="history-list">
+      <div class="titles">
+        <h3>Dice:</h3>
+        <h3>Total:</h3>
+      </div>
+      <div *ngFor="let roll of history$ | async" class="results">
+        <span class="result">{{ roll.dice }}</span>
+        <span class="result">{{ roll.total }}</span>
+      </div>
+    </div>
+    <div *ngIf="listType === ListType.SAVED">
+     <div class="titles">
+            <h3>Dice:</h3>
+            <h3>Total:</h3>
+          </div>
+          <div *ngFor="let roll of saved$ | async" class="results">
+            <span class="result">{{ roll.dice }}</span>
+            <span class="result">{{ roll.total }}</span>
+          </div>
+        </div>
+  </div>
+</div>

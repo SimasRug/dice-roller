@@ -1,0 +1,15 @@
+<div>
+  <form [formGroup]="form">
+    <div class="select-wrapper">
+    <select
+      class="side-select"
+      formControlName="sides"
+      (change)="sidesValueChange()"
+    >
+      <option *ngFor="let side of dieSides" [ngValue]="side">
+        {{ side }} SIDES
+      </option>
+    </select>
+    </div>
+  </form>
+</div>

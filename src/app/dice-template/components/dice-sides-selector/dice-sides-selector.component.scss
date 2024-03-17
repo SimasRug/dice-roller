@@ -1,0 +1,29 @@
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+
+  &:after {
+    content: "\25BE";
+    position: absolute;
+    right: 0;
+    pointer-events: none;
+    color: var(--white);
+    padding: 4px 10px 3px 10px;
+    background-color: var(--purple);
+    border-radius: 5px;
+  }
+}
+
+.side-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: var(--blue);
+  border: none;
+  border-radius: 5px;
+  padding: 8px;
+  color: var(--white);
+  font-size: 15px;
+  width: 110px;
+//   TODO: check how to see custom list on MAC
+}

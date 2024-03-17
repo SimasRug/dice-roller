@@ -1,0 +1,5 @@
+<div class="die" [ngClass]="getDieClass()" [class.rolling]="isRolling$ | async">
+  <div class="content">
+    {{ value$ | async}}
+  </div>
+</div>
