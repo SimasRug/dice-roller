@@ -1,6 +1,6 @@
 <div class="dice-roller">
   <div class="dice">
-    <div class="die-wrapper" *ngFor="let die of dice; trackBy: trackByFn">
+    <div class="die-wrapper" *ngFor="let die of dice$ |async ; trackBy: trackByFn">
       <app-die
         class="die"
         [sides]="die.sides"
@@ -10,20 +10,21 @@
       <app-dice-sides-selector
         [id]="die.id"
         [sides]="die.sides"
-        (sidesChange)="dieSideChange($event)"
+        (sidesChange)="diceSidesChange.next($event)"
       />
-    </div>
+  </div>
+  {{ total$ | async }}
   </div>
   <div class="dice-actions">
-    <app-slider-display (countChange)="diceCountChange($event)" />
-    <button class="btn roll-btn" (click)="rollDice()">ROLL</button>
-    <button
+    <app-slider-display (countChange)="diceCount.next($event)" />
+     <button class="btn roll-btn" (click)="roll.next()">ROLL</button>
+    <!--<button
       [disabled]="saveDisabled | async"
       class="btn save-btn"
       [class.disabled]="saveDisabled | async"
       (click)="save()"
     >
       SAVE
-    </button>
+    </button> -->
   </div>
 </div>
