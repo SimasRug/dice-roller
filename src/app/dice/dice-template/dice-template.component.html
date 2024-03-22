@@ -7,6 +7,12 @@
       </div>
       <app-dice-history></app-dice-history>
     </div>
-    <app-dice-roller></app-dice-roller>
+    <div class="dice-roller">
+      <nav class="navigation">
+        <a routerLink="2d" routerLinkActive="active">2d</a>
+        <a routerLink="3d" routerLinkActive="active">3d</a>
+      </nav>
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

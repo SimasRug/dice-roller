@@ -1,0 +1,39 @@
+.dice-roller {
+  background-color: var(--white);
+  border-radius: 15px;
+  padding: 20px;
+  // margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  height: 550px;
+
+  .dice {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 25px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .die-wrapper {
+    padding-top: 15px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+
+    .die {
+      display: grid;
+      justify-content: center;
+    }
+  }
+  .dice-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}

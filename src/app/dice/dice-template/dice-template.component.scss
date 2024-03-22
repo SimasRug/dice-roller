@@ -1,0 +1,45 @@
+.dice-template {
+  padding: 25px;
+
+
+  .dice-wrapper {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+
+    .title {
+      font-size: 35px;
+      color: var(--purple);
+
+      h1 {
+        margin: 0;
+        line-height: normal;
+      }
+    }
+  }
+  .dice-roller {
+
+    .navigation {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      text-decoration: none;
+      font-size: 25px;
+      margin-bottom: 15px;
+
+      a {
+        text-decoration: none;
+        color: var(--purple);
+
+        &:hover {
+          color: var(--purple-hover);
+        }
+      }
+      .active {
+        color: var(--purple-active);
+        border-bottom: 3px solid var(--purple-active);
+      }
+    }
+  }
+}

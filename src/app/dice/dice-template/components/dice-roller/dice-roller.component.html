@@ -14,16 +14,11 @@
       />
     </div>
   </div>
-  <div class="dice-actions">
-    <app-slider-display (countChange)="diceCountChange($event)" />
-    <button class="btn roll-btn" (click)="rollDice()">ROLL</button>
-    <button
-      [disabled]="saveDisabled | async"
-      class="btn save-btn"
-      [class.disabled]="saveDisabled | async"
-      (click)="save()"
-    >
-      SAVE
-    </button>
-  </div>
+  <app-dice-actions
+    [isRollDisabled]="false"
+    [isSaveDisabled]="(saveDisabled | async) ?? true"
+    (rollDice)="rollDice()"
+    (save)="save()"
+    (diceCountChange)="diceCountChange($event)"
+  />
 </div>

@@ -1,0 +1,43 @@
+.button-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr 1fr;
+  gap: 20px;
+
+  .btn {
+    height: 50px;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    font-family: "Sigmar One", sans-serif;
+  }
+
+  .roll-btn {
+    max-width: 300px;
+    background-color: var(--green);
+    color: var(--purple);
+
+    &:hover {
+      background-color: var(--green-hover);
+    }
+  }
+
+  .save-btn {
+    background-color: var(--purple);
+    color: var(--green);
+    max-width: 250px;
+
+    &:hover {
+      background-color: var(--purple-hover);
+    }
+  }
+
+  .disabled {
+    opacity: 0.5;
+    background-color: var(--grey);
+    color: var(--white);
+
+    &:hover {
+      background-color: var(--grey);
+    }
+  }
+}

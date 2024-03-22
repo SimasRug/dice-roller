@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { DiceHistoryComponent } from './components/dice-history/dice-history.component';
-import { DiceRollerComponent } from './components/dice-roller/dice-roller.component';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dice-template',
@@ -8,6 +8,6 @@ import { DiceRollerComponent } from './components/dice-roller/dice-roller.compon
   templateUrl: './dice-template.component.html',
   styleUrl: './dice-template.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [DiceHistoryComponent, DiceRollerComponent],
+  imports: [DiceHistoryComponent, RouterOutlet, RouterLink, RouterLinkActive],
 })
 export class DiceTemplateComponent {}

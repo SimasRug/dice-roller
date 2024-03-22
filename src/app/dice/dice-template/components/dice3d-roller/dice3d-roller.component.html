@@ -1,0 +1,18 @@
+<div class="dice-wrapper" *ngIf="dice().length">
+  <div id="dice-box"></div>
+  <div class="side-select-wrapper" *ngIf="dice().length">
+    <app-dice-sides-selector
+      *ngFor="let die of dice(); trackBy: trackByFn"
+      [id]="die.id"
+      [sides]="die.sides"
+      (sidesChange)="diceSidesChange($event)"
+    />
+  </div>
+  <app-dice-actions
+    [isRollDisabled]="!canRoll()"
+    [isSaveDisabled]="!canSave()"
+    (rollDice)="rollDice()"
+    (save)="save()"
+    (diceCountChange)="diceCountChange($event)"
+  />
+</div>

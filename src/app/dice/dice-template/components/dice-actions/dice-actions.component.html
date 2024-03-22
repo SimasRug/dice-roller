@@ -1,0 +1,19 @@
+<div class="button-wrapper">
+  <app-slider-display (countChange)="diceCountChange.emit($event)" />
+  <button
+    class="btn roll-btn"
+    [disabled]="isRollDisabled"
+    [class.disabled]="isRollDisabled"
+    (click)="rollDice.emit()"
+  >
+    ROLL
+  </button>
+  <button
+    [disabled]="isSaveDisabled"
+    class="btn save-btn"
+    [class.disabled]="isSaveDisabled"
+    (click)="save.emit()"
+  >
+    SAVE
+  </button>
+</div>

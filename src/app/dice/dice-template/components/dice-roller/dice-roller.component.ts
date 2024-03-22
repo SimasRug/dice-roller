@@ -10,20 +10,22 @@ import { DiceState } from '../../store/dice.reducers';
 import { Store } from '@ngrx/store';
 import { addToHistory, saveRoll } from '../../store/dice.actions';
 import { Die } from '../../models/interfaces';
+import { DiceActionsComponent } from '../dice-actions/dice-actions.component';
 
 @Component({
   selector: 'app-dice-roller',
   standalone: true,
+  templateUrl: './dice-roller.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './dice-roller.component.scss',
   imports: [
     CommonModule,
     DieComponent,
     FormsModule,
     SliderDisplayComponent,
     DiceSidesSelectorComponent,
+    DiceActionsComponent,
   ],
-  templateUrl: './dice-roller.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrl: './dice-roller.component.scss',
 })
 export class DiceRollerComponent {
   constructor(private store: Store<DiceState>) {}
