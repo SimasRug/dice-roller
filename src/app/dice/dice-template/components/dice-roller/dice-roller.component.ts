@@ -43,8 +43,9 @@ export class DiceRollerComponent {
 
   rollDice(): void {
     this.isRollingSubject.next(true);
-    const total = this.dice.reduce((total, die) => {
+    const total = this.dice.reduce((total, die, index) => {
       const value = Math.floor(Math.random() * die.sides) + 1;
+      this.dice[index].value = value;
       return total + value;
     }, 0);
     this.total = total;
