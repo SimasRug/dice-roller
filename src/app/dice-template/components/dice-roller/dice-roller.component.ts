@@ -41,8 +41,9 @@ export class DiceRollerComponent {
 
   rollDice(): void {
     this.isRollingSubject.next(true);
-    const total = this.dice.reduce((total, die) => {
+    const total = this.dice.reduce((total, die, index) => {
       const value = Math.floor(Math.random() * die.sides) + 1;
+      this.dice[index].value = value;
       return total + value;
     }, 0);
     this.total = total;
@@ -50,6 +51,7 @@ export class DiceRollerComponent {
     this.store.dispatch(addToHistory(this.getDiceSides(this.dice), total));
     this.saveDisabled.next(false);
   }
+  
   diceCountChange(diceCount: number): void {
     if (diceCount > this.dice.length) {
       for (let i = this.dice.length; i < diceCount; i++) {
