@@ -1,0 +1,10 @@
+<div class="history-list">
+  <div class="titles">
+    <h3>Dice:</h3>
+    <h3>Total:</h3>
+  </div>
+  <div *ngFor="let roll of history" class="results">
+    <span class="result">{{ roll.dice }}</span>
+    <span class="result">{{ roll.total }}</span>
+  </div>
+</div>

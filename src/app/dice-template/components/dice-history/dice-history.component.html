@@ -16,26 +16,13 @@
     </span>
   </div>
   <div class="list-wrapper">
-    <!-- TODO: list component -->
-    <div *ngIf="listType === ListType.HISTORY" class="history-list">
-      <div class="titles">
-        <h3>Dice:</h3>
-        <h3>Total:</h3>
-      </div>
-      <div *ngFor="let roll of history$ | async" class="results">
-        <span class="result">{{ roll.dice }}</span>
-        <span class="result">{{ roll.total }}</span>
-      </div>
-    </div>
-    <div *ngIf="listType === ListType.SAVED">
-     <div class="titles">
-            <h3>Dice:</h3>
-            <h3>Total:</h3>
-          </div>
-          <div *ngFor="let roll of saved$ | async" class="results">
-            <span class="result">{{ roll.dice }}</span>
-            <span class="result">{{ roll.total }}</span>
-          </div>
-        </div>
+    <app-dice-history-list
+      *ngIf="listType === ListType.HISTORY"
+      [history]="history$ | async"
+    />
+    <app-dice-history-list
+      *ngIf="listType === ListType.SAVED"
+      [history]="saved$ | async"
+    />
   </div>
 </div>

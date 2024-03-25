@@ -31,9 +31,9 @@ export class DiceRollerComponent {
   dice: Die[] = [{ id: 0, sides: 6, value: 1 }];
   total: number | undefined;
 
-  isRollingSubject = new BehaviorSubject<boolean>(false);
   saveDisabled = new BehaviorSubject<boolean>(true);
 
+  isRollingSubject = new BehaviorSubject<boolean>(false);
   isRolling$ = this.isRollingSubject.pipe(
     startWith(false),
     delayWhen((val) => (val ? timer(0) : timer(500)))
@@ -51,7 +51,7 @@ export class DiceRollerComponent {
     this.store.dispatch(addToHistory(this.getDiceSides(this.dice), total));
     this.saveDisabled.next(false);
   }
-  
+
   diceCountChange(diceCount: number): void {
     if (diceCount > this.dice.length) {
       for (let i = this.dice.length; i < diceCount; i++) {

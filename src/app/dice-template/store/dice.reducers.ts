@@ -17,18 +17,10 @@ export const diceReducer = createReducer(
     ...state,
     history: [{ dice, total }, ...state.history],
   })),
-  on(saveRoll, (state, { dice, total }) => {
-    // TODO: could be in an effect
-    localStorage.setItem(
-      'dice',
-      JSON.stringify([{ dice, total }, ...state.saved])
-    );
-
-    return {
-      ...state,
-      saved: [{ dice, total }, ...state.saved],
-    };
-  })
+  on(saveRoll, (state, { dice, total }) => ({
+    ...state,
+    saved: [{ dice, total }, ...state.saved],
+  }))
 );
 
 const diceSelectors = createSelector(

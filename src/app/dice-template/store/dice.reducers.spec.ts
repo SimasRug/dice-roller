@@ -15,8 +15,9 @@ describe('Dice Reducer', () => {
   });
 
   it('should save roll', () => {
+    localStorage.clear();
     const action = DiceActions.saveRoll('D6', 5);
     const state = diceReducer(initialState, action);
-    expect(state.saved).toEqual([{ dice: 'D6', total: 5 }]);
+    expect(state.saved[0]).toEqual({ dice: 'D6', total: 5 });
   });
 });

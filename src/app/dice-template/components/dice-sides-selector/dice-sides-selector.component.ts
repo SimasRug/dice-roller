@@ -22,7 +22,6 @@ export class DiceSidesSelectorComponent {
   dieSides = DIESIDES;
 
   ngOnInit(): void {
-    // TODO: fix, Probably not the cleanest way to do this
     this.form.controls.sides.setValue(this.sides || 6);
   }
   @Input() sides: DieSides | undefined;
