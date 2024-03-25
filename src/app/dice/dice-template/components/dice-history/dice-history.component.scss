@@ -29,38 +29,4 @@
   .list-wrapper {
     padding: 20px 0 0 20px;
   }
-
-
-  .titles {
-    color: var(--green);
-  }
-  .titles,
-  .results {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-left: 20px;
-  }
-
-  .results{
-    text-align: center;
-    border-bottom: 3px solid var(--grey);
-    animation: fadeIn 1.5s ease-in-out;
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-
-  .result {
-    padding: 10px 0;
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
 }
