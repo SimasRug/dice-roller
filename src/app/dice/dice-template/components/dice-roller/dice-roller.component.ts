@@ -62,12 +62,14 @@ export class DiceRollerComponent {
     } else {
       this.dice = this.dice.slice(0, diceCount);
     }
+    this.saveDisabled.next(true);
   }
 
   dieSideChange(value: { id: number; sides: DieSides }): void {
     this.dice = this.dice.map((die) =>
-      value.id === die.id ? { ...die, sides: value.sides } : die
+      value.id === die.id ? { ...die, sides: value.sides, value: 1 } : die
     );
+    this.saveDisabled.next(true);
   }
 
   save(): void {
@@ -81,7 +83,7 @@ export class DiceRollerComponent {
     return dice.map((die) => `d${die.sides}`).join(' ');
   }
 
-  trackByFn(_: number, die: Die): number {
-    return die.id;
+  trackByFn<T extends { id: number }>(_: number, item: T): number {
+    return item.id;
   }
 }

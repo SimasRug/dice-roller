@@ -1,29 +1,48 @@
-import { Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  Input,
+} from '@angular/core';
 import { DieSides } from '../../models/types';
 import { CommonModule } from '@angular/common';
-import { Observable, interval, map, of, startWith, switchMap } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  combineLatest,
+  interval,
+  map,
+  of,
+  startWith,
+  switchMap,
+} from 'rxjs';
 @Component({
   selector: 'app-die',
   standalone: true,
   imports: [CommonModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './die.component.html',
   styleUrl: './die.component.scss',
 })
 export class DieComponent {
   @Input() sides: DieSides | undefined;
-  @Input() value = 1;
-  @Input() isRolling$: Observable<boolean> | undefined;
+  @Input() set value(value: number) {
+    this.valueSubject.next(value);
+  }
+  @Input() isRolling$: Observable<boolean> = of(false);
+
+  valueSubject = new BehaviorSubject(1);
 
   value$: Observable<number> | undefined;
 
   ngOnInit() {
-    this.value$ = this.isRolling$?.pipe(
-      switchMap((isRolling) =>
-        isRolling
+    this.value$ = combineLatest([this.isRolling$, this.valueSubject]).pipe(
+      switchMap((val) => {
+        const [isRolling, value] = val;
+        return isRolling
           ? interval(100).pipe(map(() => this.getRandomValue()))
-          : of(this.value)
-      ),
-      startWith(this.value)
+          : of(value);
+      }),
+      startWith(this.valueSubject.getValue())
     );
   }
   getRandomValue(): number {
