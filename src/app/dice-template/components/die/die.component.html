@@ -1,4 +1,4 @@
-<div *ngIf="value$ | async" class="die" [ngClass]="getDieClass()" [class.rolling]="isRolling$ | async">
+<div *ngIf="value$ | async" class="die" [ngClass]="DieSideClasses[sides]" [class.rolling]="isRolling$ | async">
   <div class="content">
     {{ value$ | async}}
   </div>
